@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wallet - Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>💚 My Wallet</h1>
+      <p>Your money, your control.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <small id="monthLabel">TOTAL SPENT THIS MONTH</small>
+      <div class="total" id="monthlyTotal">₹0.00</div>
+      <small id="expenseCount">0 expenses recorded</small>
+    </section>
+
+    <section class="stats">
+      <div class="card">
+        <span>🍔 Food</span>
+        <h3 id="foodTotal">₹0</h3>
+      </div>
+      <div class="card">
+        <span>🛍️ Shopping</span>
+        <h3 id="shoppingTotal">₹0</h3>
+      </div>
+      <div class="card">
+        <span>🚗 Transport</span>
+        <h3 id="transportTotal">₹0</h3>
+      </div>
+      <div class="card">
+        <span>📦 Other</span>
+        <h3 id="otherTotal">₹0</h3>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:20px">
+      <h2>➕ Add an expense</h2>
+      <form id="expenseForm">
+        <div class="fields">
+          <div>
+            <label for="title">What did you spend on?</label>
+            <input id="title" placeholder="e.g. Lunch, groceries" maxlength="80" required>
+          </div>
+          <div>
+            <label for="amount">Amount (₹)</label>
+            <input id="amount" type="number" min="0.01" max="100000000" step="0.01" placeholder="e.g. 250" required>
+          </div>
+          <div>
+            <label for="category">Category</label>
+            <select id="category">
+              <option>Food</option>
+              <option>Shopping</option>
+              <option>Transport</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="date">Date</label>
+            <input id="date" type="date" required>
+          </div>
+        </div>
+        <button class="add" type="submit">+ Add expense</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <h2>Recent expenses</h2>
+        <select id="filter" aria-label="Filter expenses">
+          <option value="All">All categories</option>
+          <option>Food</option>
+          <option>Shopping</option>
+          <option>Transport</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div id="expenseList"></div>
+    </section>
+    <p class="note">Your expenses are saved in this browser on this device.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
